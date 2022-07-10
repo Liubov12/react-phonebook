@@ -8,16 +8,7 @@ function Form({ onSubmit }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    switch (name) {
-      case "name":
-        setName(value);
-        break;
-      case "number":
-        setNumber(value);
-        break;
-      default:
-        return;
-    }
+    name === "name" ? setName(value) : setNumber(value);
   };
 
   const handleSubmit = (e) => {
@@ -51,11 +42,11 @@ function Form({ onSubmit }) {
         <input
           className={s.input}
           value={number}
-          type="text"
+          type="tel"
           onChange={handleChange}
           name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          placeholder="111-11-11"
+          pattern="\+38\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}"
+          placeholder="+380 (__) ___-__-__"
           required
         />
       </label>
